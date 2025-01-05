@@ -210,4 +210,27 @@ Security Contact: Changed to 'contact@yourdomain.com' (replace with your own con
 Node: Changed to 'https://your.rpc.server:443' (replace with your own RPC address).
 This configuration is now fully customizable with your own details. Replace the placeholders with your personal or project-specific information for the validator setup!
 
-Note: The snapshot link above is provided by PolkaChu. For more information, please visit the PolkaChu Snapshots page https://polkachu.com/tendermint_snapshots/dymension.
+# If you would like to delete Dymension from your system, you can follow these steps:
+
+```
+# 1. Stop and Disable the Service
+sudo systemctl stop dymension
+sudo systemctl disable dymension
+
+# 2. Delete the Service File
+sudo rm -rf /etc/systemd/system/dymension.service
+
+# 3. Delete the Binary File
+sudo rm $(which dymension)
+
+# 4. Clean up Configuration and Dymension Directories
+sudo rm -rf $HOME/.dymension
+sudo rm -rf $HOME/dymension
+
+# 5. Remove Relevant Lines from Bash Profile
+sed -i "/DYMENSION_/d" $HOME/.bash_profile
+
+```
+These commands will remove all files and services related to Dymension from your system.
+
+# Note: The snapshot link above is provided by PolkaChu. For more information, please visit the PolkaChu Snapshots page https://polkachu.com/tendermint_snapshots/dymension.
